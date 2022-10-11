@@ -1,0 +1,45 @@
+@mixin setGapUtilClasses($property, $sides, $gaps) {
+  @if $sides {
+    @each $side in $sides {
+      @each $gap in $gaps {
+        .#{$property}-#{$side}-#{$gap} {
+          #{$property}-#{$side}: var(--layout-gap-#{$gap});
+        }
+      }
+    }
+  } @else {
+    @each $gap in $gaps {
+      .#{$property}-#{$gap} {
+        #{$property}: var(--layout-gap-#{$gap});
+      }
+    }
+  }
+}
+
+@mixin for-tablet-up {
+  @media (min-width: 880px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1285px) { @content; }
+}
+
+@mixin for-small-height-display {
+  @media screen and (min-height: 500px) and (max-height: 750px) and (min-width: 1285px) {
+    @content
+  }
+}
+
+@mixin grid() {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1.3rem;
+
+  @include for-tablet-up() {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include for-desktop-up() {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}

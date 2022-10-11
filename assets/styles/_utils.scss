@@ -1,0 +1,90 @@
+.display-flex {
+  display: flex;
+}
+
+.display-block {
+  display: block;
+}
+
+.position-absolute {
+  position: absolute;
+
+  &-m {
+    @media screen and (min-width: 500px) {
+      position: absolute;
+    }
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-self-end {
+  align-self: end;
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-midgrey {
+  color: var(--color-midgrey);
+}
+
+.h1, .h2, .h3 {
+  font-weight: var(--font-weight-bold);
+}
+
+.h1 {
+  font-size: var(--font-size-h1);
+}
+
+.h2 {
+  font-size: var(--font-size-h2);
+}
+
+.h3 {
+  font-size: var(--font-size-h3);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.text-sm {
+  font-size: 1.2rem;
+}
+
+.text-m {
+  font-size: 1.4rem;
+}
+
+.text-l {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+@include setGapUtilClasses('margin', $sides, $gaps);
+@include setGapUtilClasses('padding', $sides, $gaps);
+@include setGapUtilClasses('gap', false, $gaps);

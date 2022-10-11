@@ -1,0 +1,89 @@
+$sides: right, left, top, bottom;
+$gaps: xxs, xs, sm, m, l, xl;
+
+:root {
+  --layout-gap-xxs: 2px;
+  --layout-gap-xs: 4px;
+  --layout-gap-sd: 6px;
+  --layout-gap-sm: 8px;
+  --layout-gap-s: 10px;
+  --layout-gap-m: 16px;
+  --layout-gap-md: 20px;
+  --layout-gap-l: 32px;
+  --layout-gap-xl: 48px;
+
+  --auto-grid-min-size: 95px;
+  //--layout-width: 100%;
+  //--layout-minwidth: 280px;
+  //--layout-maxwidth: 960px;
+  //--layout-maxwidth2: 1260px;
+  //
+  //--color-green-h: 93;
+  //--color-green-s: 100%;
+  //--color-green-l: 28%;
+
+  --color-primary: var(--color-blue);
+  --color-secondary: var(--color-grey);
+  --color-text: var(--color-black);
+  //--color-accent: #f8c92e;
+  //--color-second: hsl(
+  //  var(--color-green-h),
+  //  var(--color-green-s),
+  //  var(--color-green-l)
+  //);
+  --color-blue: #3b4cfa;
+  //--color-orange: #ff6b00;
+  --color-red: #CC0101;
+  --color-black: #000000;
+  --color-dark: #333333;
+  --color-softdark: #f0f0f0;
+  --color-midgrey: #666666;
+  --color-softgrey: #e1e1e1;
+  --color-ligthgrey: #f5f5f5;
+  //--color-green: #3F8E00;
+  --color-grey: #a7a7a7;
+  //--color-info: #A9A9A9;
+  --color-darkgrey: #e1e1e1;
+  --color-white: #ffffff;
+  //--color-yellow: #F8C92E;
+  //--color-midgreen: hsl(
+  //  var(--color-green-h),
+  //  calc(var(--color-green-s) + 10%),
+  //  calc(var(--color-green-l) - 7%)
+  //);
+  //--color-darkgreen: hsl(
+  //  var(--color-green-h),
+  //  calc(var(--color-green-s) - 18%),
+  //  calc(var(--color-green-l) - 13%)
+  //);
+  //--color-lime: #adff00;
+
+  --font-size: 62.5%;
+  --font-size-base: 1.6rem;
+  --font-size-h1: 4.8rem;
+  --font-size-h2: 3.2rem;
+  --font-size-h3: 2.4rem;
+
+  --font-family: 'Rubik', sans-serif;
+
+  --line-height: 1.21;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --layer-0: 0;
+  --layer-1: 100;
+  --layer-2: 200;
+  --layer-3: 300;
+  --layer-4: 400;
+  --layer-5: 500;
+  --layer-6: 600;
+  --layer-7: 700;
+  --layer-8: 800;
+  --layer-9: 900;
+  --layer-9: 900;
+  --layer-10: 1000;
+}
