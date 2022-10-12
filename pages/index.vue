@@ -2,19 +2,22 @@
   <section class="Page">
     <div class="Page_body">
       <div v-scroll-spy="{ offset: scrollSpyOffset }" class="Page_layer -bottom">
-        <div id="builders" class="Page_section">
+        <div id="hero" class="Page_section">
+          <SectionHero />
+        </div>
+        <div id="builders" v-if="false" class="Page_section">
           <SectionBuilders />
         </div>
-        <div id="adopters" class="Page_section">
+        <div id="adopters" v-if="false" class="Page_section">
           <SectionAdopters />
         </div>
-        <div id="tech" class="Page_section">
+        <div id="tech" v-if="false" class="Page_section">
           <SectionTech/>
         </div>
-        <div id="learn" class="Page_section">
+        <div id="learn" v-if="false" class="Page_section">
           <SectionLearn />
         </div>
-        <div id="missions" class="Page_section">
+        <div id="missions" v-if="false" class="Page_section">
           <SectionMissions />
         </div>
       </div>
@@ -69,7 +72,8 @@ export default {
   }
 
   &_header {
-    position: sticky;
+    position: absolute;
+    width: 100%;
     top: 0;
     z-index: 1;
     pointer-events: all;

@@ -5,7 +5,7 @@
         <button v-scroll-to="'#home'" class="Header_action -home">
           <Logo />
         </button>
-        <div class="Header_nav">
+        <div class="Header_nav" v-if="false">
           <Nav :list="menu" :scroll-spy="scrollSpy" @click="handleClick"></Nav>
         </div>
       </div>
@@ -39,16 +39,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import "assets/styles/mixins";
+
 .Header {
   $this: &;
 
   position: relative;
-  background: linear-gradient(to bottom, rgb(63, 142, 0, 0.8) 0%, transparent 100%);
 
   &_inner {
     display: flex;
     align-items: center;
-    padding: 25px 0;
+    padding: 0;
+
+    @include for-tablet-up {
+      padding: 57px 0;
+    }
   }
 
   &_action {
@@ -56,9 +61,6 @@ export default {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    padding: 14px;
     border: none;
     border-radius: 50%;
     background-color: transparent;
@@ -98,27 +100,16 @@ export default {
     }
   }
 
-  @media (max-height: 880px), (max-width: 1020px) {
-    &_inner {
-      padding: 15px 0;
-    }
-  }
+  //@media (max-height: 880px), (max-width: 1020px) {
+  //  &_inner {
+  //    padding: 15px 0;
+  //  }
+  //}
 
   @media (max-width: 780px) {
     &_inner {
       justify-content: space-between;
       padding: 12px 0;
-    }
-
-    &_action {
-      width: 42px;
-      height: 42px;
-      padding: 10px;
-
-      &.-video,
-      &.-roadmap {
-        display: none;
-      }
     }
 
     &_nav {

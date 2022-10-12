@@ -85,7 +85,7 @@ export default {
   }
 
   &.-rounded {
-    border-radius: 10px;
+    border-radius: 48px;
   }
 
   &.-wide {
