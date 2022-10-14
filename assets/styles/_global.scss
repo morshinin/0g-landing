@@ -19,7 +19,7 @@ body {
   line-height: var(--line-height);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #F5F3FC;
 
 
@@ -69,7 +69,6 @@ p {
 a {
   text-decoration: none;
   color: var(--color-dark);
-  border-bottom: 1px solid;
 }
 
 .container {

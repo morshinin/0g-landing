@@ -21,7 +21,7 @@
 }
 
 @mixin for-desktop-up {
-  @media (min-width: 1285px) { @content; }
+  @media (min-width: 1200px) { @content; }
 }
 
 @mixin for-small-height-display {

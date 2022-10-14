@@ -11,7 +11,6 @@
           :size="'tall'"
           :color="'blue'"
           :form="'rounded'"
-          v-if="false"
       >
         Schedule Demo
       </Button>
@@ -35,8 +34,16 @@ export default {};
   display: flex;
 
   @include for-tablet-up {
-    padding-top: 293px;
+    padding-top: 112px;
     display: block;
+    padding-bottom: 0;
+    min-height: auto;
+    margin-bottom: 77px;
+  }
+
+  @include for-desktop-up {
+    padding-top: 293px;
+    margin-bottom: 164px;
   }
 
   .container {
@@ -50,7 +57,6 @@ export default {};
     font-size: 32px;
     line-height: 1;
     color: #110B28;
-    margin-bottom: 24px;
     max-width: 312px;
     margin-top: 240px;
 
@@ -59,11 +65,13 @@ export default {};
       line-height: 38px;
       max-width: 430px;
       margin-top: 0;
+      margin-bottom: 12px;
     }
 
     @include for-desktop-up {
       font-size: 64px;
       line-height: 75px;
+      margin-bottom: 24px;
       max-width: 700px;
     }
   }

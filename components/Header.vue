@@ -5,7 +5,7 @@
         <button v-scroll-to="'#home'" class="Header_action -home">
           <Logo />
         </button>
-        <div class="Header_nav" v-if="false">
+        <div class="Header_nav">
           <Nav :list="menu" :scroll-spy="scrollSpy" @click="handleClick"></Nav>
         </div>
       </div>

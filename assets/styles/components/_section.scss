@@ -103,15 +103,19 @@
   }
 
   &_title {
-    color: var(--color-white);
     font-family: var(--font-family);
-    font-weight: var(--font-weight-black);
-    font-size: calc(64px * var(--scale-factor));
-    font-style: italic;
-    line-height: 1;
-    text-shadow: 6px 6px 0px var(--color-darkgrey);
-    text-transform: uppercase;
-    -webkit-text-stroke: 3px var(--color-darkgrey);
+    color: var(--color-text);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include for-tablet-up {
+      font-size: 24px;
+    }
+
+    @include for-desktop-up {
+      font-size: 48px;
+    }
 
     &.-highlight {
       font-style: normal;
@@ -119,17 +123,25 @@
       color: var(--color-accent);
       -webkit-text-stroke: 0;
     }
+
+    &.-opposite {
+      color: var(--color-white);
+    }
   }
 
   &_description {
     margin: 0;
     margin-top: 25px;
-    color: var(--color-white);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
     font-family: var(--font-family);
-    font-weight: var(--font-weight-medium);
-    font-size: calc(22px * var(--scale-factor));
-    line-height: 1.32;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+    color: var(--color-text);
+
+    &.-opposite {
+      color: var(--color-white);
+    }
   }
 
   &_button {
@@ -142,10 +154,6 @@
 
     min-height: auto;
     padding: 30px 0;
-
-    &_description {
-      margin-top: 20px;
-    }
 
     &_button {
       margin-top: 30px;

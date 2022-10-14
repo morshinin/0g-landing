@@ -5,19 +5,25 @@
         <div id="hero" class="Page_section">
           <SectionHero />
         </div>
-        <div id="builders" v-if="false" class="Page_section">
-          <SectionBuilders />
+        <div id="builders" class="Page_section">
+          <div class="container">
+            <SectionBuilders />
+          </div>
         </div>
-        <div id="adopters" v-if="false" class="Page_section">
-          <SectionAdopters />
+        <div id="adopters" class="Page_section">
+          <div class="container">
+            <SectionAdopters />
+          </div>
         </div>
-        <div id="tech" v-if="false" class="Page_section">
-          <SectionTech/>
+        <div id="tech" class="Page_section">
+          <div class="container">
+            <SectionTech/>
+          </div>
         </div>
-        <div id="learn" v-if="false" class="Page_section">
+        <div v-if="false" id="learn" class="Page_section">
           <SectionLearn />
         </div>
-        <div id="missions" v-if="false" class="Page_section">
+        <div v-if="false" id="missions" class="Page_section">
           <SectionMissions />
         </div>
       </div>
@@ -98,6 +104,17 @@ export default {
       position: relative;
       z-index: var(--layer-2);
     }
+  }
+
+  #builders {
+    margin-bottom: 164px;
+  }
+  
+  #adopters {
+    background: #110B28;
+    background: url("/images/adopters-bg.png") center / cover no-repeat;
+    border-radius: 80px;
+    margin-bottom: 164px;
   }
 }
 </style>

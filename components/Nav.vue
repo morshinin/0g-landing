@@ -30,7 +30,7 @@ export default {
 
   display: flex;
   align-items: center;
-  margin: 0 auto !important;
+  margin: 0 0 0 auto;
   padding: 4px 16px !important;
   overflow-x: auto;
   overflow-y: hidden;
@@ -50,20 +50,11 @@ export default {
 
     &.-active {
       pointer-events: none;
+      color: #5335CA;
 
       #{$this}_link::before {
         opacity: 0.3;
         transform: scale(1);
-      }
-    }
-
-    & + & {
-      &::before {
-        content: '→';
-        margin: 0 15px;
-        position: relative;
-        top: 0;
-        font-size: 14px;
       }
     }
   }
@@ -72,15 +63,14 @@ export default {
     position: relative;
     z-index: 0;
     padding: 8px 10px;
-    color: var(--color-white);
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
     font-size: 18px;
     line-height: 1.21;
     text-align: center;
-    text-transform: uppercase;
     text-decoration: none;
     transition: ease color 200ms;
+    color: inherit;
 
     &:hover {
       color: var(--color-accent);
