@@ -151,8 +151,6 @@
   }
 
   &_description {
-    margin: 0;
-    margin-top: 25px;
     font-style: normal;
     font-weight: 400;
     font-size: 1.6rem;
@@ -247,21 +245,6 @@
     &_cover,
     &_content {
       transform: translate(0, 0) !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    &_label {
-      font-size: 21px;
-    }
-
-    &_title {
-      font-size: 42px;
-    }
-
-    &_description {
-      font-size: 18px;
-      font-weight: var(--font-weight-regular);
     }
   }
 }

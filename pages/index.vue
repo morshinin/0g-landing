@@ -8,9 +8,7 @@
           </div>
         </div>
         <div id="builders" class="Page_section">
-          <div class="container">
-            <SectionBuilders />
-          </div>
+          <SectionBuilders />
         </div>
         <div id="adopters" class="Page_section">
           <div class="container">
@@ -111,7 +109,8 @@ export default {
   }
 
   #builders {
-    margin-bottom: 164px;
+    margin-top: -60px;
+    margin-bottom: 22px;
   }
   
   #adopters,

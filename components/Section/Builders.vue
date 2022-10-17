@@ -23,15 +23,14 @@
         :type="'opposite'"
       />
     </div>
-    <div class="Builders_box -white -column">
-      <WhiteCard
-          v-for="(card, index) in cards.secondary"
-          :key="index"
-          :title="card.title"
-          :description="card.description"
-      />
-    </div>
-
+      <div class="Builders_box -white -column">
+        <WhiteCard
+            v-for="(card, index) in cards.secondary"
+            :key="index"
+            :title="card.title"
+            :description="card.description"
+        />
+      </div>
   </article>
 </template>
 
@@ -87,14 +86,21 @@ export default {
     display: grid;
     grid-template-columns: repeat(8, 60px);
     row-gap: 60px;
+    width: 768px;
+    margin: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   @include for-desktop-up {
     grid-template-columns: repeat(12, 60px);
+    width: 1220px;
   }
 
 
   &_title {
+    margin-bottom: 10px;
+
     @include for-tablet-up {
       max-width: 340px;
       margin-bottom: 11px;
@@ -107,20 +113,42 @@ export default {
   }
 
   &_description {
+    margin-top: 0;
+
     @include for-tablet-up {
       font-size: 16px;
       line-height: 19px;
       margin-top: 0;
       max-width: 310px;
     }
+
+    @include for-desktop-up {
+      font-size: 2rem;
+      line-height: 2.4rem;
+      max-width: none;
+    }
   }
 
   &_body {
     grid-column: span 5;
     order: 3;
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
 
     @include for-tablet-up {
       grid-column: span 4;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      width: auto;
+    }
+
+    @include for-desktop-up {
+      grid-column: 1 / 6;
     }
   }
 
@@ -136,15 +164,6 @@ export default {
     }
   }
 
-  &_logo {
-    width: 30px;
-    height: 33px;
-
-    @include for-tablet-up {
-      width: 42px;
-      height: 37px;
-    }
-  }
 
   &_box {
     box-shadow: 0 16px 32px rgba(47, 30, 115, 0.2);
@@ -164,23 +183,31 @@ export default {
       order: 1;
       box-shadow: 0px 12px 32px rgba(83, 53, 202, 0.1);
       border-radius: 24px;
-      position: absolute;
+      position: relative;
+      margin: auto;
+      width: calc(360px - 4.8rem);
+      top: 60px;
 
       @include for-tablet-up {
         top: 0;
-        gap: 40px;
-        right: 0;
+        gap: 30px;
         bottom: auto;
         left: auto;
-        max-width: 340px;
-        padding: 20px;
         position: absolute;
+        right: 32px;
+        padding: 20px 27px;
+        max-width: none;
+        width: 333px;
       }
 
       @include for-desktop-up {
         width: 513px;
-        bottom: -116px;
-        left: -223px;
+        top: auto;
+        left: -60px;
+        border-radius: 50px;
+        padding: 42px 47px;
+        bottom: -97px;
+        gap: 40px;
       }
     }
 
@@ -211,14 +238,41 @@ export default {
     &.-grid {
       background: url("/images/list-bg.jpg") center / cover no-repeat;
       order: 2;
+      width: 360px;
+      padding-top: 105px;
+      padding-left: 45px;
+      padding-right: 45px;
+      padding-bottom: 43px;
+      margin-top: -22px;
+      margin-bottom: 25px;
+      border-radius: 24px;
+      margin-right: auto;
+      margin-left: auto;
+      display: grid;
+      row-gap: 28px;
 
       @include for-tablet-up {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 40px;
-        row-gap: 57px;
+        row-gap: 30px;
         grid-row: 2;
         grid-column: span 7;
+        margin: 0;
+        padding: 60px 20px 40px;
+        width: 616px;
+      }
+
+      @include for-desktop-up {
+        grid-row: 1;
+        position: relative;
+        order: 2;
+        grid-column: 6 / 13;
+        width: auto;
+        border-radius: 50px;
+        padding: 50px 50px 245px 50px;
+        row-gap: 52px;
+        column-gap: 41px;
       }
     }
   }

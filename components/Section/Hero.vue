@@ -40,12 +40,12 @@ export default {};
     display: block;
     padding-bottom: 0;
     min-height: auto;
-    margin-bottom: 77px;
+    margin-bottom: 160px;
   }
 
   @include for-desktop-up {
     padding-top: 293px;
-    margin-bottom: 164px;
+    margin-bottom: 375px;
   }
 
   .container {
