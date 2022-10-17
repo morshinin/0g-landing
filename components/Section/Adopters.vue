@@ -1,7 +1,7 @@
 <template>
   <article class="Section Adopters">
     <div class="Section_body">
-      <p class="Adopters_pretitle">Early adopters</p>
+      <p class="Section_pretitle">Early adopters</p>
       <h1 class="Section_title -opposite Adopters_title">
         Web3 at&nbsp;your fingertips
       </h1>
@@ -9,14 +9,12 @@
         Launch all your Web3 apps and manage all virtual items and game assets in&nbsp;one place
       </p>
       <div class="Adopters_slider">
-        <div
-            v-for="(card, index) in cards.adopters"
-            :key="index"
-            class="Box -small -purple"
-        >
-          <h2 class="h2 Adopters_h2" v-html="card.title" />
-          <img :src="`images/${card.img}`" class="Card_img" alt="">
-        </div>
+        <PromoSlide
+          v-for="(card, index) in cards.adopters"
+          :key="index"
+          :title="card.title"
+          :img="card.img"
+        />
       </div>
     </div>
     <footer class="Section_footer">
@@ -97,37 +95,6 @@ export default {
 
   &_disclaimer {
     max-width: 570px;
-  }
-}
-
-.Box {
-  &.-small {
-    width: 360px;
-    height: 338px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    flex-basis: 360px;
-    overflow: hidden;
-    padding: 30px 40px;
-  }
-
-  &.-purple {
-    background: #5335CA;
-    box-shadow: 0px 32px 32px rgba(14, 0, 70, 0.8);
-    color: var(--color-white);
-  }
-}
-
-.Card {
-  &_img {
-    rotate: -10deg;
-    border-radius: 24px;
-    filter: drop-shadow(-16px -4px 28px rgba(31, 0, 153, 0.19));
-    width: 334px;
-    height: 252px;
-    position: absolute;
-    bottom: -44px;
-    right: -36px;
   }
 }
 </style>

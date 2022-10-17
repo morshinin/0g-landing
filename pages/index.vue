@@ -3,7 +3,9 @@
     <div class="Page_body">
       <div v-scroll-spy="{ offset: scrollSpyOffset }" class="Page_layer -bottom">
         <div id="hero" class="Page_section">
-          <SectionHero />
+          <div class="container">
+            <SectionHero />
+          </div>
         </div>
         <div id="builders" class="Page_section">
           <div class="container">
@@ -20,10 +22,12 @@
             <SectionTech/>
           </div>
         </div>
-        <div v-if="false" id="learn" class="Page_section">
-          <SectionLearn />
+        <div id="learn" class="Page_section">
+          <div class="container">
+            <SectionLearn />
+          </div>
         </div>
-        <div v-if="false" id="missions" class="Page_section">
+        <div id="missions" class="Page_section">
           <SectionMissions />
         </div>
       </div>
@@ -110,11 +114,27 @@ export default {
     margin-bottom: 164px;
   }
   
-  #adopters {
+  #adopters,
+  #learn {
     background: #110B28;
-    background: url("/images/adopters-bg.png") center / cover no-repeat;
-    border-radius: 80px;
+    border-radius: 2.4rem;
     margin-bottom: 164px;
+
+    @include for-tablet-up {
+
+    }
+
+    @include for-desktop-up {
+      border-radius: 80px;
+    }
+  }
+
+  #adopters {
+    background: url("/images/adopters-bg.png") center / cover no-repeat;
+  }
+
+  #learn {
+    background: url("/images/learn-bg.jpg") center / cover no-repeat;
   }
 }
 </style>

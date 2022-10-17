@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "assets/styles/mixins";
+
 .Button {
   display: inline-block;
   padding: 12px 26px;
@@ -95,6 +97,10 @@ export default {
   &.-tall {
     padding: 16px 43px;
     font-size: 1.6rem;
+
+    @include for-desktop-up {
+      padding: 16px 38px;
+    }
   }
 
   &.-s {

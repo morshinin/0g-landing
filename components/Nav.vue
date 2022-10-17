@@ -25,18 +25,25 @@ export default {
 </script>
 
 <style lang="scss">
+@import "assets/styles/mixins";
+
 .Nav {
   $this: &;
 
   display: flex;
   align-items: center;
   margin: 0 0 0 auto;
-  padding: 4px 16px !important;
+  padding: 4px 16px;
   overflow-x: auto;
   overflow-y: hidden;
   overflow: -moz-scrollbars-none;
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  @include for-desktop-up {
+    padding: 0;
+    gap: 40px;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -71,6 +78,13 @@ export default {
     text-decoration: none;
     transition: ease color 200ms;
     color: inherit;
+
+    @include for-desktop-up {
+      font-weight: 500;
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+      padding: 0;
+    }
 
     &:hover {
       color: var(--color-accent);

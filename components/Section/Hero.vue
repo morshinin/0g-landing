@@ -1,20 +1,22 @@
 <template>
   <article class="Hero">
-    <div class="container">
-      <h1 class="Hero_title">
-        Web3 On-Ramps for Accelerated Adoption
-      </h1>
-      <p class="Hero_description">
-        Add decentralization to&nbsp;native development environment&nbsp;— with zero fees and instant transactions
-      </p>
-      <Button
-          :size="'tall'"
-          :color="'blue'"
-          :form="'rounded'"
-      >
-        Schedule Demo
-      </Button>
-    </div>
+    <h1 class="Hero_title">
+      Web3 On-Ramps for Accelerated Adoption
+    </h1>
+    <p class="Hero_description -primary">
+      Bleeding-edge tech to enchance apps with Web3 features in native environment
+    </p>
+    <p class="Hero_description -secondary">
+      Add decentralization to&nbsp;native development environment&nbsp;— with zero fees and instant transactions
+    </p>
+    <Button
+      :class="'Hero_button'"
+      :size="'tall'"
+      :color="'blue'"
+      :form="'rounded'"
+    >
+      Schedule Demo
+    </Button>
   </article>
 </template>
 
@@ -27,14 +29,14 @@ export default {};
 
 .Hero {
   padding-top: 100px;
-  padding-bottom: 100px;
-  min-height: 670px;
   box-sizing: border-box;
   font-family: var(--font-family);
   display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
 
   @include for-tablet-up {
-    padding-top: 112px;
+    padding-top: 116px;
     display: block;
     padding-bottom: 0;
     min-height: auto;
@@ -50,53 +52,85 @@ export default {};
     margin: auto;
   }
 
-
   &_title {
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
-    line-height: 1;
     color: #110B28;
-    max-width: 312px;
-    margin-top: 240px;
+    margin-top: 194px;
+    margin-bottom: 23px;
+    font-size: 2.8rem;
+    line-height: 3.3rem;
+    order: 1;
 
     @include for-tablet-up {
-      font-size: 32px;
-      line-height: 38px;
+      font-size: 3.2rem;
+      line-height: 3.8rem;
       max-width: 430px;
       margin-top: 0;
       margin-bottom: 12px;
     }
 
     @include for-desktop-up {
-      font-size: 64px;
-      line-height: 75px;
+      font-size: 6.4rem;
+      line-height: 7.6rem;
       margin-bottom: 24px;
       max-width: 700px;
     }
+
   }
 
   &_description {
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
     color: #110B28;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
     max-width: 320px;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    order: 4;
 
     @include for-tablet-up {
+      order: 2;
       max-width: 350px;
     }
 
     @include for-desktop-up {
-      font-size: 20px;
-      line-height: 23px;
+      font-size: 2rem;
       max-width: 400px;
+      line-height: 2.4rem;
+    }
+
+    &.-primary {
+      font-size: 2rem;
+      line-height: 2.4rem;
+      display: block;
+      order: 2;
+
+      @include for-tablet-up {
+        display: none;
+      }
+    }
+
+    &.-secondary {
+      margin-top: 18px;
+      margin-bottom: 0;
+
+      @include for-tablet-up {
+        margin-top: 0;
+        margin-bottom: 33px;
+      }
     }
   }
 
+  &_button {
+    order: 3;
+  }
+
   .Button {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.02em;
+
     &::before,
     &::after {
       position: absolute;
@@ -109,6 +143,13 @@ export default {};
       height: 36px;
       right: -50px;
       top: 30px;
+      display: none;
+
+      @include for-desktop-up {
+        right: -49px;
+        top: 41px;
+        display: block;
+      }
     }
 
     &::after {
@@ -125,6 +166,13 @@ export default {};
       padding: 17px 25px;
       right: -190px;
       top: 50px;
+      display: none;
+
+      @include for-desktop-up {
+        display: block;
+        padding: 17px;
+        right: -182px;
+      }
     }
   }
 }

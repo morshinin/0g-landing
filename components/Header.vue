@@ -8,6 +8,7 @@
         <div class="Header_nav">
           <Nav :list="menu" :scroll-spy="scrollSpy" @click="handleClick"></Nav>
         </div>
+        <div class="Header_nav -mobile"></div>
       </div>
     </div>
   </div>
@@ -23,9 +24,8 @@ export default {
       menu: [
         { title: 'For Builders', target: '#builders' },
         { title: 'For Early Adopters', target: '#adopters' },
-        { title: 'Underlying Tech', target: '#tech' },
-        { title: 'Learn', target: '#learn' },
-        { title: 'Mission', target: '#mission' },
+        { title: 'For App Developers', target: '#tech' },
+        { title: 'Play to Earn', target: '#learn' },
       ],
     }
   },
@@ -49,10 +49,15 @@ export default {
   &_inner {
     display: flex;
     align-items: center;
-    padding: 0;
+    padding: 20px 0;
+    justify-content: space-between;
 
     @include for-tablet-up {
-      padding: 57px 0;
+      padding: 19px 0;
+    }
+
+    @include for-desktop-up {
+      padding: 60px 0;
     }
   }
 
@@ -67,6 +72,7 @@ export default {
     color: var(--color-white);
     cursor: pointer;
     transition: ease color 200ms, ease transform 200ms;
+    padding: 0;
 
     &.-bordered {
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -86,10 +92,43 @@ export default {
   }
 
   &_nav {
-    display: flex;
-    margin: 0 16px;
-    flex-grow: 1;
-    overflow: hidden;
+    display: none;
+
+    @include for-desktop-up {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    &.-mobile {
+      display: block;
+      width: 30px;
+      height: 2px;
+      position: relative;
+      background-color: var(--color-black);
+      top: -10px;
+      right: 3px;
+
+      @include for-desktop-up {
+        display: none;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: inherit;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        bottom: -8px;
+      }
+    }
   }
 
   &_button {
@@ -100,17 +139,10 @@ export default {
     }
   }
 
-  //@media (max-height: 880px), (max-width: 1020px) {
-  //  &_inner {
-  //    padding: 15px 0;
-  //  }
-  //}
-
   @media (max-width: 780px) {
-    &_inner {
-      justify-content: space-between;
-      padding: 12px 0;
-    }
+    //&_inner {
+    //  padding: 12px 0;
+    //}
 
     &_nav {
       display: none;

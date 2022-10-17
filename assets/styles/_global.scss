@@ -1,3 +1,5 @@
+@import "assets/styles/mixins";
+
 * {
   box-sizing: border-box;
 }
@@ -35,7 +37,7 @@ body {
     max-height: 500px;
     
     @media screen and (min-width: 387px) {
-      background: url("/images/sphere.png") right top / contain no-repeat;
+      background: url("/images/sphere.png") right top / 63% no-repeat;
     }
 
     @include for-tablet-up {
@@ -72,18 +74,21 @@ a {
 }
 
 .container {
-  max-width: 320px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  width: 360px;
 
   @include for-tablet-up() {
     min-width: 768px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    width: 768px;
   }
 
   @include for-desktop-up() {
-    min-width: 1285px;
+    width: 1220px;
   }
 
   &.-wide {
