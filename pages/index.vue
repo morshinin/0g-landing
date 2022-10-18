@@ -18,7 +18,7 @@
             <SectionTech/>
           </div>
         </div>
-        <div v-if="false" id="learn" class="Page_section">
+        <div id="learn" class="Page_section">
           <div class="container">
             <SectionLearn />
           </div>
@@ -186,11 +186,11 @@ export default {
   
   #adopters,
   #learn {
-    border-radius: 2.4rem;
-    margin-bottom: 164px;
+    border-radius: 2.4rem 2.4rem 0 0;
+    // margin-bottom: 164px;
 
     @include for-desktop-up {
-      border-radius: 80px;
+      border-radius: 80px 80px 0 0;
     }
   }
 
