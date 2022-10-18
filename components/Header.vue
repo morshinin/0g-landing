@@ -27,7 +27,7 @@ export default {
         { title: 'For Builders', target: '#builders' },
         { title: 'For Early Adopters', target: '#adopters' },
         { title: 'For App Developers', target: '#tech' },
-        { title: 'Play to Earn', target: '#learn' },
+        // { title: 'Play to Earn', target: '#learn' },
       ],
     }
   },

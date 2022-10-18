@@ -1,12 +1,12 @@
 <template>
   <section class="Page">
     <div class="Page_body">
-      <div v-scroll-spy="{ offset: scrollSpyOffset }" class="Page_layer -bottom">
-        <div id="hero" class="Page_section">
+      <div id="hero" class="Page_section">
           <div class="container">
             <SectionHero />
           </div>
         </div>
+      <div v-scroll-spy="{ offset: scrollSpyOffset }" class="Page_layer -bottom">
         <div id="builders" class="Page_section">
           <SectionBuilders />
         </div>
