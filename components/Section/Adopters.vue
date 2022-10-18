@@ -26,7 +26,7 @@
       </div>
       <footer class="Section_footer">
         <p class="Section_description -opposite Adopters_disclaimer">
-          Brining the best from both worlds of&nbsp;Web3 and old-school Web for developers and users
+          Bringing the best from both worlds of&nbsp;Web3 and old-school Web for developers and users
         </p>
       </footer>
     </div>
