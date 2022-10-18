@@ -18,7 +18,7 @@
             <SectionTech/>
           </div>
         </div>
-        <div v-if="false" id="learn" class="Page_section">
+        <div id="learn" class="Page_section">
           <div class="container">
             <SectionLearn />
           </div>
