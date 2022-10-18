@@ -1,6 +1,6 @@
 export default {
   head: {
-    title: 'Og',
+    title: '0g Platform - Accelerated Web 3 integration service',
     htmlAttrs: {
       lang: 'en'
     },
@@ -10,7 +10,7 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, maximum-scale=1'
       },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Your portal to the Web 3 universe. Zero fees, global community, easy scalability and distribution.' },
       {
         hid: 'keywords',
         name: 'keywords',
