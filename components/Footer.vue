@@ -14,12 +14,6 @@ export default {
       currentYear: new Date().getFullYear(),
     };
   },
-
-  methods: {
-    getFullYear() {
-      return new Date().getFullYear();
-    }
-  }
 }
 </script>
 
