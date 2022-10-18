@@ -32,7 +32,9 @@
           <Header />
         </div>
       </div>
+      <Footer />
     </div>
+    
   </section>
 </template>
 

@@ -1,18 +1,54 @@
 <template>
-  <div class="Logo">
-    <img src="images/0g_logo.svg" alt="0g" class="Logo_img" width="320" height="62" />
+  <div class="Logo" :class="classList">
+    <img :src="url" alt="0g" class="Logo_img" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    inverted: {
+      type: Boolean,
+      default: false,
+    },
+    small: {
+      type: Boolean,
+      default: false,
+    }
+  },
+
+  computed: {
+    classList() {
+      return {
+        '-is-small': this.small,
+      };
+    },
+    url() {
+      return this.inverted ? 'images/0g_logo-white.svg' : 'images/0g_logo.svg'
+    }
+  }
+}
 </script>
 
 <style lang="scss">
 @import "assets/styles/mixins";
 
 .Logo {
+  $this: &;
+
   position: relative;
+
+  &.-is-small {
+    #{$this}_img {
+      width: 30px;
+      height: 30px;
+
+      @include for-desktop-up {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
   
   &_img {
     width: 56px;
