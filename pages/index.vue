@@ -117,7 +117,7 @@ export default {
 
   #builders {
     margin-top: -40px;
-    margin-bottom: 22px;
+    margin-bottom: 60px;
 
     @include for-tablet-up {
       margin-bottom: 100px;

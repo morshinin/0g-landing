@@ -192,6 +192,11 @@ export default {
     margin-bottom: 32px;
     width: fit-content;
 
+    &::after {
+      content: '';
+      flex: 0 0 2rem;
+    }
+
     @include for-tablet-up {
       margin-bottom: 34px;
     }

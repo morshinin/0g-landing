@@ -51,14 +51,14 @@ export default {
         ],
         secondary: [
           {
-            title: 'Economics & Models',
-            description: 'Experienced guidance on&nbsp;building models and highly sufficient economics for games',
-            type: 'secondary',
-          },
-          {
             title: 'Industry Leading Advice',
             description: 'From mentors building some of&nbsp;the best Web3 applications since 2017',
             type: 'primary',
+          },
+          {
+            title: 'Economics & Models',
+            description: 'Experienced guidance on&nbsp;building models and highly sufficient economics for games',
+            type: 'secondary',
           },
         ],
       },
@@ -191,10 +191,8 @@ export default {
     }
 
     &.-secondary {
-      flex-direction: column-reverse;
-
       @include for-tablet-up {
-        flex-direction: row;
+        flex-direction: row-reverse;
         margin: 0;
         gap: 33px;
       }
