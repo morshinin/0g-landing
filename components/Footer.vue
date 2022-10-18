@@ -1,13 +1,26 @@
 <template>
   <footer class="Footer">
     <div class="Footer_body">
-      
+      <Logo small inverted />
+      <div class="Footer_notice">© {{ currentYear }} 0g. All rights reserved.</div>
     </div>
   </footer>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
+    };
+  },
+
+  methods: {
+    getFullYear() {
+      return new Date().getFullYear();
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -17,34 +30,23 @@ export default {}
   padding-top: 170px;
   position: relative;
 
+  &_body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_notice {
+    color: #FFFFFF;
+    opacity: 0.5;
+  }
+
   @include for-tablet-up() {
     background: none;
   }
 
   @include for-desktop-up() {
     padding-top: 0;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: url(/images/abstract.png) center / cover no-repeat;
-    z-index: -1;
-
-    @include for-tablet-up() {
-      height: 410px;
-      z-index: var(--layer-0);
-      top: -210px;
-    }
-
-    @include for-desktop-up() {
-      top: -312px;
-      height: 551px;
-    }
   }
 }
 </style>

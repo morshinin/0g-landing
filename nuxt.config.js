@@ -25,13 +25,16 @@ export default {
     { src: '~/plugins/scrollreveal.js', mode: 'client' },
     { src: '~/plugins/scrollto.js', mode: 'client' },
     { src: '~/plugins/scrollspy.js', mode: 'client' },
-    { src: '~/plugins/scrollmagic.js', mode: 'client' }
+    { src: '~/plugins/scrollmagic.js', mode: 'client' },
+    { src: '~/plugins/api.js', mode: 'client' },
+    { src: '~/plugins/storage.js', mode: 'client' },
   ],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg-sprite',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@braid/vue-formulate/nuxt'
   ],
   build: {},
   router: {
@@ -40,6 +43,23 @@ export default {
         name: 'home',
         path: '/',
         component: resolve(__dirname, 'pages/index.vue'),
+        children: [
+          {
+            name: 'cookie',
+            path: 'cookie',
+            component: resolve(__dirname, 'components/CookiePolicyPopup.vue'),
+          },
+          {
+            name: 'privacy',
+            path: 'privacy',
+            component: resolve(__dirname, 'components/PrivacyPolicy.vue'),
+          },
+          {
+            name: 'terms',
+            path: 'terms',
+            component: resolve(__dirname, 'components/Terms.vue'),
+          },
+        ]
       })
     }
   },

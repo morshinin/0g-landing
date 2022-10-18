@@ -27,12 +27,22 @@
           <SectionMissions />
         </div>
       </div>
+      <SectionGetInTouch />
       <div class="Page_layer -top">
         <div class="Page_header">
           <Header />
         </div>
       </div>
     </div>
+    <div class="Page_cookie">
+      <CookiePopup
+        :visible="cookieAcceptPopup"
+        @close="closeCookieAcceptPopup"
+      />
+    </div>
+    <transition name="scale" mode="in-out">
+      <router-view></router-view>
+    </transition>
   </section>
 </template>
 
@@ -40,6 +50,7 @@
 export default {
   data() {
     return {
+      cookieAcceptPopup: false,
       scrollSpyOffset: 80,
       scrollPosition: null,
     }
@@ -78,8 +89,18 @@ export default {
     }
 
     window.addEventListener('scroll', this.updateScroll);
+
+    if (!this.$storage.has('cookie-accepted')) {
+      setTimeout(() => {
+        this.cookieAcceptPopup = true
+      }, 1000)
+    }
   },
   methods: {
+    closeCookieAcceptPopup() {
+      this.$storage.set('cookie-accepted', true)
+      this.cookieAcceptPopup = false
+    },
     updateScroll() {
       this.scrollPosition = window.scrollY
     }
@@ -141,6 +162,13 @@ export default {
       position: relative;
       z-index: var(--layer-2);
     }
+  }
+
+  &_cookie {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: var(--layer-4);
   }
 
   #builders {
