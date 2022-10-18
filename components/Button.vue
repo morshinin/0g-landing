@@ -150,7 +150,7 @@ export default {
     color: var(--color-white);
     
     &:hover {
-      background-color: darken(#3b4cfa, 10%);
+      background-color: var(--color-blue-dark);
     }
   }
 
@@ -180,7 +180,7 @@ export default {
 
   &.-disabled {
     pointer-events: none;
-    background-color: var(--color-secondary);
+    background-color: var(--color-blue-light);
     color: var(--color-white);
   }
 

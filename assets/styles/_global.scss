@@ -35,12 +35,13 @@ body {
     right: 0;
     z-index: -1;
     max-height: 500px;
-    
-    @media screen and (min-width: 387px) {
-      background: url("/images/sphere.png") right top / 63% no-repeat;
-    }
+
+    //@media screen and (min-width: 387px) {
+    //  background: url("/images/sphere.png") right top / 63% no-repeat;
+    //}
 
     @include for-tablet-up {
+      background: url("/images/sphere.png") right top / 63% no-repeat;
       max-height: none;
     }
 

@@ -1,5 +1,8 @@
 <template>
-  <div class="Header">
+  <div
+    class="Header"
+    :class="{'-scrolled': scrolled}"
+  >
     <div class="container">
       <div class="Header_inner">
         <button v-scroll-to="'#home'" class="Header_action -home">
@@ -8,7 +11,6 @@
         <div class="Header_nav">
           <Nav :list="menu" :scroll-spy="scrollSpy" @click="handleClick"></Nav>
         </div>
-        <div class="Header_nav -mobile"></div>
       </div>
     </div>
   </div>
@@ -18,6 +20,7 @@
 export default {
   props: {
     scrollSpy: { type: Boolean, default: true },
+    scrolled: { type: Boolean, default: false },
   },
   data() {
     return {
@@ -92,42 +95,9 @@ export default {
   }
 
   &_nav {
-    display: none;
-
     @include for-desktop-up {
       display: flex;
       flex-grow: 1;
-    }
-
-    &.-mobile {
-      display: block;
-      width: 30px;
-      height: 2px;
-      position: relative;
-      background-color: var(--color-black);
-      top: -10px;
-      right: 3px;
-
-      @include for-desktop-up {
-        display: none;
-      }
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        width: 30px;
-        height: 2px;
-        background-color: inherit;
-      }
-
-      &::before {
-        top: -8px;
-      }
-
-      &::after {
-        bottom: -8px;
-      }
     }
   }
 
@@ -140,18 +110,31 @@ export default {
   }
 
   @media (max-width: 780px) {
-    //&_inner {
-    //  padding: 12px 0;
-    //}
-
-    &_nav {
-      display: none;
-    }
-
     &_button {
       .Button {
         border-radius: 8px;
         font-size: 16px;
+      }
+    }
+  }
+
+  &.-scrolled {
+    background-color: var(--color-bluegrey);
+
+    #{$this}_inner {
+      padding: 10px 0;
+
+      @include for-desktop-up {
+        padding: 28px 0;
+      }
+    }
+
+    .Logo_img {
+      width: 30px;
+      height: 48px;
+
+      @include for-tablet-up {
+        width: 54px;
       }
     }
   }

@@ -25,6 +25,7 @@ export default {
     { src: '~/plugins/scrollreveal.js', mode: 'client' },
     { src: '~/plugins/scrollto.js', mode: 'client' },
     { src: '~/plugins/scrollspy.js', mode: 'client' },
+    { src: '~/plugins/scrollmagic.js', mode: 'client' }
   ],
   components: true,
   buildModules: [

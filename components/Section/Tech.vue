@@ -1,9 +1,9 @@
 <template>
   <article class="Section Tech">
     <header class="Section_header">
-      <p class="Tech_pretitle">For app developers</p>
+      <p class="Section_pretitle Tech_pretitle">For app developers</p>
       <h1 class="Section_title Tech_title">
-        Uncapped Scalability and Free TXs
+        Uncapped Scalability and <span class="text-highlight">Free TXs</span>
       </h1>
     </header>
     <div class="Section_body">
@@ -72,7 +72,11 @@ export default {
 
 .Tech {
   position: relative;
-  margin-bottom: 164px;
+  margin-bottom: 62px;
+
+  @include for-desktop-up {
+    margin-bottom: 120px;
+  }
 
   &::before,
   &::after {
@@ -82,54 +86,122 @@ export default {
 
   &::before {
     background: url("/images/cube.png") center / cover no-repeat;
-    width: 221px;
-    height: 188px;
-    right: 60px;
-    top: 282px;
+    top: 32px;
+    right: -60px;
+    width: 100px;
+    height: 90px;
+
+    @include for-tablet-up {
+      width: 160px;
+      height: 140px;
+      top: 83px;
+      right: 15px;
+    }
+
+    @include for-desktop-up {
+      width: 221px;
+      height: 188px;
+      right: -20px;
+      top: 282px;
+    }
   }
 
   &::after {
     background: url("/images/cone.png") center / cover no-repeat;
-    width: 213px;
-    height: 265px;
-    bottom: 12px;
-    left: -95px;
+    bottom: auto;
+    top: -22px;
+    left: auto;
+    right: 20px;
+    width: 130px;
+    height: 130px;
+
+    @include for-tablet-up {
+      width: 190px;
+      height: 180px;
+      top: 10px;
+      right: 190px;
+    }
+
+    @include for-desktop-up {
+      width: 213px;
+      height: 265px;
+      bottom: 12px;
+      left: -95px;
+      right: auto;
+      top: auto;
+    }
   }
 
   &_pretitle {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    text-transform: uppercase;
-    margin-bottom: 35px;
-    color: #5335CA;
+    @include for-desktop-up {
+      margin-bottom: 35px;
+    }
   }
 
   &_title {
-    max-width: 600px;
+    max-width: 230px;
+    margin-bottom: 10px;
+
+    @include for-tablet-up {
+      max-width: 300px;
+    }
+
+    @include for-desktop-up {
+      max-width: 600px;
+      margin-bottom: 25px;
+    }
   }
 
   &_description {
-    max-width: 470px;
-    margin-bottom: 45px;
+    //max-width: 470px;
+    margin-bottom: 33px;
+
+    @include for-tablet-up {
+      max-width: 330px;
+    }
+
+    @include for-desktop-up {
+      margin-bottom: 45px;
+      max-width: 440px;
+    }
   }
 
   &_cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
     @include for-tablet-up {
       display: flex;
+      flex-direction: row;
     }
 
     &.-primary {
+      margin-bottom: 25px;
+
       @include for-tablet-up {
+        gap: 35px;
+        margin-bottom: 34px;
+      }
+
+      @include for-desktop-up {
         gap: 72px;
         margin-bottom: 60px;
       }
     }
 
     &.-secondary {
+      flex-direction: column-reverse;
+
       @include for-tablet-up {
-        margin-left: 213px;
+        flex-direction: row;
+        margin: 0;
+        gap: 33px;
+      }
+
+      @include for-desktop-up {
         gap: 70px;
+        margin-left: 213px;
       }
     }
   }

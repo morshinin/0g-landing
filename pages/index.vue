@@ -11,27 +11,27 @@
           <SectionBuilders />
         </div>
         <div id="adopters" class="Page_section">
-          <div class="container">
-            <SectionAdopters />
-          </div>
+          <SectionAdopters />
         </div>
         <div id="tech" class="Page_section">
           <div class="container">
             <SectionTech/>
           </div>
         </div>
-        <div id="learn" class="Page_section">
+        <div v-if="false" id="learn" class="Page_section">
           <div class="container">
             <SectionLearn />
           </div>
         </div>
-        <div id="missions" class="Page_section">
+        <div v-if="false" id="missions" class="Page_section">
           <SectionMissions />
         </div>
       </div>
       <div class="Page_layer -top">
         <div class="Page_header">
-          <Header />
+          <Header
+            :scrolled="scrollPosition > 100"
+          />
         </div>
       </div>
     </div>
@@ -43,11 +43,19 @@ export default {
   data() {
     return {
       scrollSpyOffset: 80,
+      scrollPosition: null,
     }
   },
   mounted() {
     if (window.innerWidth < 780) {
       this.scrollSpyOffset = 30
+    }
+
+    window.addEventListener('scroll', this.updateScroll);
+  },
+  methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
     }
   },
 }
@@ -80,11 +88,11 @@ export default {
   }
 
   &_header {
-    position: absolute;
-    width: 100%;
+    position: sticky;
     top: 0;
     z-index: 1;
     pointer-events: all;
+    width: 100%;
 
     &::before {
       content: '';
@@ -98,10 +106,6 @@ export default {
   }
 
   &_section {
-    &:first-child {
-      overflow: hidden;
-    }
-
     &.-way {
       position: relative;
       z-index: var(--layer-2);
@@ -111,17 +115,20 @@ export default {
   #builders {
     margin-top: -60px;
     margin-bottom: 22px;
+
+    @include for-tablet-up {
+      margin-bottom: 100px;
+    }
+
+    @include for-desktop-up {
+      margin-bottom: 257px;
+    }
   }
   
   #adopters,
   #learn {
-    background: #110B28;
     border-radius: 2.4rem;
     margin-bottom: 164px;
-
-    @include for-tablet-up {
-
-    }
 
     @include for-desktop-up {
       border-radius: 80px;
@@ -129,10 +136,19 @@ export default {
   }
 
   #adopters {
-    background: url("/images/adopters-bg.png") center / cover no-repeat;
+    margin-bottom: 60px;
+
+    @include for-tablet-up {
+      margin-bottom: 70px;
+    }
+
+    @include for-desktop-up {
+      margin-bottom: 120px;
+    }
   }
 
   #learn {
+    background: #110B28;
     background: url("/images/learn-bg.jpg") center / cover no-repeat;
   }
 }

@@ -34,6 +34,7 @@ export default {};
   display: flex;
   flex-direction: column;
   margin-bottom: 24px;
+  position: relative;
 
   @include for-tablet-up {
     padding-top: 116px;
@@ -46,7 +47,36 @@ export default {};
   @include for-desktop-up {
     padding-top: 293px;
     margin-bottom: 375px;
+    //background: url("/images/shperes.png") top right / contain no-repeat;
   }
+
+  //&::before,
+  //&::after {
+  //  z-index: -1;
+  //  position: absolute;
+  //}
+  //
+  //&::before {
+  //  content: url("/images/shperes.png");
+  //  background: transparent;
+  //  padding: 0;
+  //  border: none;
+  //  border-radius: 50%;
+  //  box-shadow: 1px 0 210px #5335ca;
+  //
+  //  @include for-desktop-up {
+  //    top: -140px;
+  //    right: -276px;
+  //  }
+  //}
+  //
+  //&::after {
+  //  content: url("/images/shperes.png");
+  //  position: absolute;
+  //  top: 180px;
+  //  right: -10px;
+  //  scale: 0.5;
+  //}
 
   .container {
     margin: auto;

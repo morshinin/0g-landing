@@ -85,6 +85,6 @@
   text-transform: capitalize;
 }
 
-@include setGapUtilClasses('margin', $sides, $gaps);
-@include setGapUtilClasses('padding', $sides, $gaps);
-@include setGapUtilClasses('gap', false, $gaps);
+.text-highlight {
+  color: var(--color-primary);
+}

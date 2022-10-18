@@ -69,15 +69,20 @@ export default {
   &_link {
     position: relative;
     z-index: 0;
-    padding: 8px 10px;
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
-    font-size: 18px;
     line-height: 1.21;
     text-align: center;
     text-decoration: none;
     transition: ease color 200ms;
     color: inherit;
+    font-size: 1.2rem;
+    padding: 0;
+
+    @include for-tablet-up {
+      font-size: 1.5rem;
+      padding: 8px 10px;
+    }
 
     @include for-desktop-up {
       font-weight: 500;
@@ -99,61 +104,59 @@ export default {
       left: -6px;
       top: -4px;
       z-index: -1;
-      border: 1px solid var(--color-white);
-      border-radius: 12px;
       opacity: 0;
       transform: scale(0.95);
       transition: ease opacity 300ms, ease transform 300ms;
     }
   }
 
-  @media (max-width: 780px) {
-    padding: 3px 16px !important;
-
-    &_item {
-      & + & {
-        margin-left: 10px;
-
-        &::before {
-          display: none;
-        }
-      }
-    }
-
-    &_link {
-      padding: 6px 7px;
-      font-size: 16px;
-
-      &::before {
-        width: calc(100% + 7px);
-        height: calc(100% + 5px);
-        left: -3px;
-        top: -3px;
-        border-radius: 8px;
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 3px 14px !important;
-
-    &_item {
-      & + & {
-        margin-left: 6px;
-      }
-    }
-
-    &_link {
-      padding: 5px 6px;
-      font-size: 15px;
-
-      &::before {
-        width: calc(100% + 6px);
-        height: calc(100% + 5px);
-        left: -3px;
-        top: -3px;
-      }
-    }
-  }
+  //@media (max-width: 780px) {
+  //  padding: 3px 16px !important;
+  //
+  //  &_item {
+  //    & + & {
+  //      margin-left: 10px;
+  //
+  //      &::before {
+  //        display: none;
+  //      }
+  //    }
+  //  }
+  //
+  //  &_link {
+  //    padding: 6px 7px;
+  //    font-size: 16px;
+  //
+  //    &::before {
+  //      width: calc(100% + 7px);
+  //      height: calc(100% + 5px);
+  //      left: -3px;
+  //      top: -3px;
+  //      border-radius: 8px;
+  //    }
+  //  }
+  //}
+  //
+  //@media (max-width: 480px) {
+  //  padding: 3px 14px !important;
+  //
+  //  &_item {
+  //    & + & {
+  //      margin-left: 6px;
+  //    }
+  //  }
+  //
+  //  &_link {
+  //    padding: 5px 6px;
+  //    font-size: 15px;
+  //
+  //    &::before {
+  //      width: calc(100% + 6px);
+  //      height: calc(100% + 5px);
+  //      left: -3px;
+  //      top: -3px;
+  //    }
+  //  }
+  //}
 }
 </style>

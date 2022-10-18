@@ -3,7 +3,7 @@
     <div class="Section_body Builders_body">
       <p class="Section_pretitle">Builders</p>
       <h1 class="Section_title Builders_title">
-        Boost your applications with the Power of Web3
+        Boost your applications with the <span class="text-highlight">Power of Web3</span>
       </h1>
       <div class="Section_description Builders_description">
         <p class="Builders_text">
