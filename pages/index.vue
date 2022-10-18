@@ -104,6 +104,11 @@ export default {
   }
 
   &_section {
+    overflow: hidden;
+
+    @include for-tablet-up {
+      overflow: unset;
+    }
     &.-way {
       position: relative;
       z-index: var(--layer-2);

@@ -25,7 +25,7 @@
 }
 
 @mixin for-small-height-display {
-  @media screen and (min-height: 500px) and (max-height: 750px) and (min-width: 1285px) {
+  @media screen and (min-height: 500px) and (max-height: 750px) and (min-width: 1185px) {
     @content
   }
 }

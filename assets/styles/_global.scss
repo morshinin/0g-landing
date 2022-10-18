@@ -27,9 +27,9 @@ body {
   &:before {
     content: '';
     position: absolute;
-    width: 400px;
+    width: 50%;
     height: 400px;
-    left: 141px;
+    right: 0;
     top: -139px;
     background: #5335CA;
     filter: blur(125px);
@@ -65,6 +65,10 @@ body {
 
     @include for-desktop-up {
       background: url("/images/sphere.png") right top / 60% no-repeat;
+    }
+
+    @include for-small-height-display {
+      background: url("/images/sphere.png") right top / 50% no-repeat;
     }
   }
 

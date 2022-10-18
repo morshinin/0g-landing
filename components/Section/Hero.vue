@@ -28,7 +28,7 @@ export default {};
 @import "assets/styles/mixins";
 
 .Hero {
-  padding-top: 100px;
+  padding-top: 10vh;
   box-sizing: border-box;
   font-family: var(--font-family);
   display: flex;
