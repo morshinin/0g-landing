@@ -23,8 +23,10 @@
             <SectionLearn />
           </div>
         </div>
-        <div v-if="false" id="missions" class="Page_section">
-          <SectionMissions />
+        <div id="missions" class="Page_section">
+          <div class="container">
+            <SectionMissions />
+          </div>
         </div>
       </div>
       <div class="Page_layer -top">
@@ -34,7 +36,7 @@
       </div>
       <Footer />
     </div>
-    
+
   </section>
 </template>
 
@@ -161,7 +163,6 @@ export default {
   #adopters,
   #learn {
     border-radius: 2.4rem 2.4rem 0 0;
-    // margin-bottom: 164px;
 
     @include for-desktop-up {
       border-radius: 80px 80px 0 0;
@@ -181,8 +182,29 @@ export default {
   }
 
   #learn {
+    margin-bottom: 60px;
     background: #110B28;
     background: url("/images/learn-bg.jpg") center / cover no-repeat;
+
+    @include for-tablet-up {
+      margin-bottom: 70px;
+    }
+
+    @include for-desktop-up {
+      margin-bottom: 120px;
+    }
+  }
+
+  #missions {
+    margin-bottom: 60px;
+
+    @include for-tablet-up {
+      margin-bottom: 135px;
+    }
+
+    @include for-desktop-up {
+      margin-bottom: 50px;
+    }
   }
 }
 </style>
