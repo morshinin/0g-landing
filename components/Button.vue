@@ -132,14 +132,13 @@ export default {
   }
   
   &.-white {
+    color: var(--color-dark);
     background-color: var(--color-white);
-    border: 3px solid var(--color-black);
     border-radius: 6px;
-    box-shadow: 2px 1px 0 var(--color-black);
     letter-spacing: -0.5px;
     
     &:hover {
-      background-color: var(--color-black);
+      background-color: var(--color-dark);
       color: var(--color-white);
       transition: ease-in color 200ms;
     }

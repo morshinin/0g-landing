@@ -18,7 +18,7 @@
       </div>
       <div class="CookiePopup_button">
         <Button
-          :color="'green'"
+          :color="'white'"
           :glow="true"
           :form="'rounded'"
           @click="$emit('close')"

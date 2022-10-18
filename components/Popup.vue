@@ -168,41 +168,6 @@ export default {
     }
   }
 
-  &.-video {
-    #{$this}_inner {
-      padding-bottom: 110px;
-    }
-
-    #{$this}_body {
-      max-width: 554px;
-      padding: 5px;
-      border: none;
-      border-radius: 14px;
-    }
-
-    #{$this}_header,
-    #{$this}_close {
-      display: none;
-    }
-
-    #{$this}_content {
-      margin-top: 0;
-
-      .twitter-tweet {
-        margin: 0 !important;
-      }
-    }
-
-    #{$this}_footer {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      margin-top: 0;
-      position: absolute;
-      top: calc(100% + 30px);
-    }
-  }
-
   &_inner {
     display: flex;
     min-height: 100%;
@@ -219,15 +184,15 @@ export default {
     left: 0;
     top: 0;
     z-index: 0;
-    background-image: linear-gradient(180deg, #5335CA 0%, #7354ED 100%);
+    background: #110B28;
     opacity: 0.9;
   }
 
   &_close {
     display: inline-block;
     padding: 0;
-    width: 25px;
-    height: 25px;
+    width: 16px;
+    height: 16px;
     position: absolute;
     right: 15px;
     top: 15px;
@@ -251,8 +216,8 @@ export default {
     padding: 25px;
     position: relative;
     z-index: 1;
-    color: var(--color-dark);
-    background-color: var(--color-white);
+    color: #110B28;
+    background-color: #F5F3FC;
     border: 2px solid #5335CA;
     border-radius: 20px;
   }
@@ -262,7 +227,7 @@ export default {
 
   &_title {
     margin: 0;
-    color: var(--color-dark);
+    color: #110B28;
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
     font-size: 20px;

@@ -75,7 +75,7 @@ export default {
       transform: none;
     }
     @include for-tablet-up {
-      width: 455px;
+      max-width: 575px;
       left: 10%;
       bottom: 10vh;
     }
@@ -87,6 +87,7 @@ export default {
 
     @include for-tablet-up {
       flex-direction: row;
+      justify-content: space-between;
       gap: 32px;
     }
   }
@@ -127,10 +128,11 @@ export default {
     flex: 1;
     padding-bottom: 37px;
     z-index: 1;
+    margin: 0 -25px;
+    max-width: 560px;
 
     @include for-tablet-up {
-      position: relative;
-
+      margin: 0;
     }
   }
 
