@@ -1,7 +1,7 @@
 <template>
   <article ref="viewport" class="Section Adopters">
     <div class="container">
-      <div class="Section_body">
+      <div class="Section_body" ref="body">
         <p class="Section_pretitle Adopters_pretitle">Early adopters</p>
         <h1 class="Section_title -opposite Adopters_title">
           Web3 at&nbsp;your fingertips
@@ -11,7 +11,7 @@
         </p>
         <div class="Adopters_scroll-wrap">
           <div class="Adopters_scroll">
-            <Scrollbar>
+            <Scrollbar :style="{padding: `0 ${padding}`}">
               <div class="Adopters_slider">
                   <PromoSlide
                     v-for="(card, index) in cards"
@@ -43,6 +43,7 @@ export default {
   },
   data() {
     return {
+      padding: 0,
       cards: [
         {
           title: 'Instant secure TXs',
@@ -97,6 +98,8 @@ export default {
     //     )
     //   )
     // )
+      console.log(this.$refs.body.offsetLeft);
+    this.padding = this.$refs.body.offsetLeft + 'px';
   }
 };
 </script>
@@ -163,13 +166,19 @@ export default {
       }
     }
     position: absolute;
+    left: 0;
     width: 100%;
-    padding-right: 10%;
     padding-bottom: 15px;
 
-    @include for-desktop-up {
-      padding-right: 8%;
-    }
+    // .Scrollbar {
+    //   padding: 0 5rem;
+    // }
+
+    // @include for-desktop-up {
+    //   .Scrollbar {
+    //     padding: 0 11rem;
+    //   }
+    // }
 
     .PromoSlide {
       box-shadow: none !important;
