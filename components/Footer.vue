@@ -27,7 +27,6 @@ export default {
 @import '@/assets/styles/mixins';
 
 .Footer {
-  background: #110B28;
   position: relative;
 
   &_body {
