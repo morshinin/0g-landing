@@ -35,6 +35,10 @@ body {
     filter: blur(125px);
     opacity: 0.7;
     z-index: -1;
+
+    @include for-tablet-up {
+      display: none;
+    }
   }
 
 
