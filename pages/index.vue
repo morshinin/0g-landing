@@ -44,6 +44,34 @@ export default {
       scrollPosition: null,
     }
   },
+  head() {
+    const host = 'https://0g.camp';
+    const title = '0g Platform - Accelerated Web 3 integration service';
+    const description = 'Your portal to the Web 3 universe. Zero fees, global community, easy scalability and distribution.';
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content:  description },
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:url', property: 'og:url', content: host },
+        { hid: 'og:type', property: 'og:url', content: 'website' },
+        { hid: 'og:description', property: 'og:description', content: description },
+        { hid: 'og:image', property: 'og:image', content: `${host}/images/logo-og.jpg` },
+        { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
+        { hid: 'og:image:height', property: 'og:image:height', content: '630' },
+        { hid: 'og:image:type', property: 'og:image:type', content: 'image/jpg' },
+
+        // twitter card
+        { hid: "twitter:title", name: "twitter:title", content: title },
+        { hid: "twitter:url", name: "twitter:url", content: host },
+        { hid: 'twitter:description', name: 'twitter:description', content: description },
+        { hid: "twitter:card", name: "twitter:card", content: 'summary_large_image' },
+        { hid: "twitter:image", name: "twitter:image", content: `${host}/images/logo-og.jpg` },
+
+
+        // { hid: "facebook-domain-verification", name: "facebook-domain-verification", content: 'q9h5tdo29t02igs1rcsfpowddw4skb' },
+      ]
+    }
+  },
   mounted() {
     if (window.innerWidth < 780) {
       this.scrollSpyOffset = 30
