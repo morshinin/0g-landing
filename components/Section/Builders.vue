@@ -137,6 +137,7 @@ export default {
     width: 360px;
     padding-left: 2.4rem;
     padding-right: 2.4rem;
+    margin-top: 40px;
 
     @include for-tablet-up {
       grid-column: span 4;

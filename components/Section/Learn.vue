@@ -12,13 +12,13 @@
       </p>
     </div>
     <footer class="Section_footer">
-      <Button
+      <!-- <Button
         :size="'tall'"
         :color="'blue'"
         :form="'rounded'"
         >
         Schedule Demo
-      </Button>
+      </Button> -->
     </footer>
   </article>
 </template>

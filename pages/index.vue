@@ -29,9 +29,7 @@
       </div>
       <div class="Page_layer -top">
         <div class="Page_header">
-          <Header
-            :scrolled="scrollPosition > 100"
-          />
+          <Header />
         </div>
       </div>
     </div>
@@ -88,7 +86,7 @@ export default {
   }
 
   &_header {
-    position: sticky;
+    // position: sticky;
     top: 0;
     z-index: 1;
     pointer-events: all;
@@ -113,7 +111,7 @@ export default {
   }
 
   #builders {
-    margin-top: -60px;
+    margin-top: -40px;
     margin-bottom: 22px;
 
     @include for-tablet-up {

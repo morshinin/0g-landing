@@ -1,7 +1,6 @@
 <template>
   <div
     class="Header"
-    :class="{'-scrolled': scrolled}"
   >
     <div class="container">
       <div class="Header_inner">
@@ -95,6 +94,10 @@ export default {
   }
 
   &_nav {
+    @media (max-width: 800px) {
+      display: none;
+    }
+
     @include for-desktop-up {
       display: flex;
       flex-grow: 1;

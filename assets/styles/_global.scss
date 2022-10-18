@@ -24,23 +24,37 @@ body {
   overflow-x: hidden;
   background-color: #F5F3FC;
 
+  &:before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 141px;
+    top: -139px;
+    background: #5335CA;
+    filter: blur(125px);
+    opacity: 0.7;
+    z-index: -1;
+  }
+
 
   &::after {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 70%;
     height: 100%;
     background: url("/images/sphere-mobile.png") right top / contain no-repeat;
     top: 0;
     right: 0;
     z-index: -1;
-    max-height: 500px;
+    max-height: 400px;
 
     //@media screen and (min-width: 387px) {
     //  background: url("/images/sphere.png") right top / 63% no-repeat;
     //}
 
     @include for-tablet-up {
+      width: 100%;
       background: url("/images/sphere.png") right top / 63% no-repeat;
       max-height: none;
     }

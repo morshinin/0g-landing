@@ -9,13 +9,19 @@
         <p class="Section_description -opposite Adopters_description">
           Launch all your Web3 apps and manage all virtual items and game assets in&nbsp;one place
         </p>
-        <div ref="cards" class="Adopters_slider">
-          <PromoSlide
-            v-for="(card, index) in cards"
-            :key="index"
-            :title="card.title"
-            :img="card.img"
-          />
+        <div class="Adopters_scroll-wrap">
+          <div class="Adopters_scroll">
+            <Scrollbar>
+              <div class="Adopters_slider">
+                  <PromoSlide
+                    v-for="(card, index) in cards"
+                    :key="index"
+                    :title="card.title"
+                    :img="card.img"
+                  />
+              </div>
+            </Scrollbar>
+          </div>
         </div>
       </div>
       <footer class="Section_footer">
@@ -28,9 +34,13 @@
 </template>
 
 <script>
-import { TimelineMax, Sine } from 'gsap'
+import Scrollbar from '../Scrollbar/Scrollbar.vue';
+// import { TimelineMax, Sine } from 'gsap'
 
 export default {
+  components: {
+    Scrollbar,
+  },
   data() {
     return {
       cards: [
@@ -62,31 +72,31 @@ export default {
     }
   },
   mounted() {
-    const viewport = this.$refs.viewport
-    const cards = this.$refs.cards
-    const shift = (cards.clientWidth - viewport.clientWidth) * -1
+    // const viewport = this.$refs.viewport
+    // const cards = this.$refs.cards
+    // const shift = (cards.clientWidth - viewport.clientWidth) * -1
 
-    this.$scrollmagic.addScene(
-      this.$scrollmagic
-      .scene({
-        triggerElement: viewport,
-        triggerHook: 0,
-        duration: 4000,
-      })
-      .setPin(viewport, { pushFollowers: true })
-      .setTween(
-        new TimelineMax()
-        .fromTo(
-          cards,
-          0.5,
-          { x: 0 },
-          {
-            x: shift,
-            ease: Sine.easeInOut,
-          }
-        )
-      )
-    )
+    // this.$scrollmagic.addScene(
+    //   this.$scrollmagic
+    //   .scene({
+    //     triggerElement: viewport,
+    //     triggerHook: 0,
+    //     duration: 4000,
+    //   })
+    //   .setPin(viewport, { pushFollowers: true })
+    //   .setTween(
+    //     new TimelineMax()
+    //     .fromTo(
+    //       cards,
+    //       0.5,
+    //       { x: 0 },
+    //       {
+    //         x: shift,
+    //         ease: Sine.easeInOut,
+    //       }
+    //     )
+    //   )
+    // )
   }
 };
 </script>
@@ -144,7 +154,30 @@ export default {
     }
   }
 
+  &_scroll {
+    &-wrap {
+      height: 260px;
+
+      @include for-desktop-up {
+        height: 370px;
+      }
+    }
+    position: absolute;
+    width: 100%;
+    padding-right: 10%;
+    padding-bottom: 15px;
+
+    @include for-desktop-up {
+      padding-right: 8%;
+    }
+
+    .PromoSlide {
+      box-shadow: none !important;
+    }
+  }
+
   &_slider {
+    padding: 0 0 10px 0 !important;
     display: flex;
     gap: 20px;
     margin-bottom: 32px;
