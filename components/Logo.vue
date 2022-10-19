@@ -24,7 +24,7 @@ export default {
       };
     },
     url() {
-      return this.inverted ? 'images/0g_logo-white.svg' : 'images/0g_logo.svg'
+      return this.inverted ? 'images/0g-logo-inverted.svg' : 'images/0g_logo.svg'
     }
   }
 }
@@ -40,12 +40,12 @@ export default {
 
   &.-is-small {
     #{$this}_img {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
 
       @include for-desktop-up {
-        width: 48px;
-        height: 48px;
+        width: 64px;
+        height: 64px;
       }
     }
   }
