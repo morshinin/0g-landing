@@ -2,7 +2,7 @@
   <div :class="[`-${loadingState.toLowerCase()}`]" class="ScheduleForm">
     <div class="ScheduleForm_box">
       <FormulateForm
-        v-show="!loading.FAIL && !loading.PROGRESS"
+        v-show="!loading.SUCCESS && !loading.PROGRESS"
         v-model="fields"
         name="schedule"
         @submit="handleForm"
@@ -76,7 +76,7 @@
       <div v-if="loading.PROGRESS" class="ScheduleForm_spinner">
         <Spinner />
       </div>
-      <div v-if="loading.FAIL" class="ScheduleForm_success">
+      <div v-if="loading.SUCCESS" class="ScheduleForm_success">
         <svg-icon name="check"></svg-icon>
         <div class="ScheduleForm_success-title">Thanks for your inquiry</div>
         <p class="ScheduleForm_success-text">
