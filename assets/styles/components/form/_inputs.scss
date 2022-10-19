@@ -69,6 +69,9 @@
       @include baseinput;
     }
 
+    .formulate-input-element--date {
+      min-width: 10em;
+    }
     .formulate-input-element--date,
     .formulate-input-element--month,
     .formulate-input-element--week,

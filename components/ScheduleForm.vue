@@ -298,7 +298,7 @@ export default {
     color: var(--color-dark);
 
     .formulate-input-element--checkbox {
-      flex: 1 0 auto;
+      flex: 0 0 16px;
       align-self: flex-start;
       margin-right: 11px;
       margin-top: 3px;
@@ -306,11 +306,10 @@ export default {
   }
 
   &_calendar {
-    // font-size: 15.5px;
-
-    .formulate-input-element--date input {
-      padding: 0.65em;
-      line-height: 1;
+    @include for-tablet-up() {
+      .formulate-input-label {
+        margin-bottom: 0;
+      }
     }
   }
 

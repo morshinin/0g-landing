@@ -126,13 +126,14 @@ export default {
     position: relative;
     left: 0;
     flex: 1;
-    padding-bottom: 37px;
+    padding-bottom: 210px;
     z-index: 1;
     margin: 0 -25px;
     max-width: 560px;
 
     @include for-tablet-up {
       margin: 0;
+      padding-bottom: 37px;
     }
   }
 
