@@ -37,6 +37,13 @@ export default {
     '@braid/vue-formulate/nuxt'
   ],
   build: {},
+  modules: [
+    '@nuxtjs/gtm',
+  ],
+  gtm: {
+    id: 'GTM-TJRT4BH',
+    enabled: true,
+  },
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
