@@ -1,12 +1,33 @@
 <template>
   <div :class="[`-${loadingState.toLowerCase()}`]" class="ScheduleForm">
     <div class="ScheduleForm_box">
-      <FormulateForm v-show="!loading.FAIL && !loading.PROGRESS" v-model="fields" name="schedule" @submit="handleForm">
-        <FormulateInput :validation="`required`" label="Name" name="name" />
-        <FormulateInput :validation="`required`" label="Company" name="company" />
-        <FormulateInput :validation="`required`" label="Email" name="email" />
+      <FormulateForm
+        v-show="!loading.FAIL && !loading.PROGRESS"
+        v-model="fields"
+        name="schedule"
+        @submit="handleForm"
+      >
+        <FormulateInput
+          :validation="`required`"
+          placeholder="Your Name"
+          label="Name"
+          name="name"
+        />
+        <FormulateInput
+          :validation="`required`"
+          placeholder="Company Name"
+          label="Company"
+          name="company"
+        />
+        <FormulateInput :validation="`required`" placeholder="Your Email" label="Email" name="email" />
 
-        <FormulateInput :validation="`required`" type="tel" label="Phone number" name="phone" />
+        <FormulateInput
+          :validation="`required`"
+          type="tel"
+          placeholder="Your Phone"
+          label="Phone number"
+          name="phone"
+        />
 
         <div class="ScheduleForm_group">
           <FormulateInput
@@ -26,7 +47,12 @@
             label="Time Zone"
           />
         </div>
-        <FormulateInput name="privacy" :validation="`required`" class="ScheduleForm_privacy" type="checkbox">
+        <FormulateInput
+          name="privacy"
+          :validation="`required`"
+          class="ScheduleForm_privacy"
+          type="checkbox"
+        >
           <label slot="label">
             I agree with
             <nuxt-link class="ScheduleForm_link" to="terms"
@@ -38,8 +64,14 @@
             >
           </label>
         </FormulateInput>
-        <div v-if="loading.FAIL" class="ScheduleForm_caption">{{ caption }}</div>
-        <FormulateInput class="ScheduleForm_button" type="submit" label="Schedule Demo" />
+        <div v-if="loading.FAIL" class="ScheduleForm_caption">
+          {{ caption }}
+        </div>
+        <FormulateInput
+          class="ScheduleForm_button"
+          type="submit"
+          label="Schedule Demo"
+        />
       </FormulateForm>
       <div v-if="loading.PROGRESS" class="ScheduleForm_spinner">
         <Spinner />
@@ -47,7 +79,9 @@
       <div v-if="loading.FAIL" class="ScheduleForm_success">
         <svg-icon name="check"></svg-icon>
         <div class="ScheduleForm_success-title">Thanks for your inquiry</div>
-        <p class="ScheduleForm_success-text">We'll reach out in the nearest possible time</p>
+        <p class="ScheduleForm_success-text">
+          We'll reach out in the nearest possible time
+        </p>
         <Button
           class="ScheduleForm_button"
           :size="'tall'"
@@ -63,7 +97,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 const timeZones = require("../data/time-zones.json");
 const phoneCodes = require("../data/phone-codes.json");
 
@@ -83,7 +117,7 @@ const loading = {
 
 export default {
   data() {
-    const currentDate = dayjs().format('YYYY-MM-DD')
+    const currentDate = dayjs().format("YYYY-MM-DD");
     return {
       currentDate,
       fields: {
@@ -146,7 +180,7 @@ export default {
           ...this.fields,
           phoneNumber: this.fields.phone,
         });
-        this.$formulate.reset('schedule');
+        this.$formulate.reset("schedule");
         this.setLoading(loading.SUCCESS);
       } catch (error) {
         this.setLoading(loading.FAIL);
@@ -160,7 +194,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/mixins';
+@import "@/assets/styles/mixins";
 @import "~/assets/styles/components/form/form.scss";
 .ScheduleForm {
   $this: &;
@@ -238,7 +272,7 @@ export default {
       font-weight: 500;
       font-size: 20px;
       line-height: 24px;
-      color: #5335CA;
+      color: #5335ca;
     }
 
     &-text {
