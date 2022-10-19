@@ -19,7 +19,7 @@
           label="Company"
           name="company"
         />
-        <FormulateInput :validation="`required`" placeholder="Your Email" label="Email" name="email" />
+        <FormulateInput :validation="`required|email`" placeholder="Your Email" label="Email" name="email" />
 
         <FormulateInput
           :validation="`required`"
@@ -87,7 +87,7 @@
           :size="'tall'"
           :color="'blue'"
           :form="'rounded'"
-          @click="resetFailState"
+          @click="resetFailState(true)"
         >
           ok, thanks
         </Button>
@@ -168,8 +168,8 @@ export default {
     setLoading(state) {
       this.loadingState = state;
     },
-    resetFailState() {
-      if (this.loading.FAIL || this.loading.SUCCESS) {
+    resetFailState(reset) {
+      if (this.loading.FAIL || reset) {
         this.setLoading(loading.INITIAL);
       }
     },
@@ -217,10 +217,8 @@ export default {
   }
 
   &_caption {
+    margin-bottom: 24px;
     color: var(--color-red);
-  }
-
-  &_caption {
     font-weight: var(--font-weight-regular);
     font-size: 12px;
     line-height: 1.16;
