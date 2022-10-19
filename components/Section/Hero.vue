@@ -9,14 +9,15 @@
     <p class="Hero_description -secondary">
       Add decentralization to&nbsp;native development environment&nbsp;— with zero fees and instant transactions
     </p>
-    <!-- <Button
+    <Button
+      v-scroll-to="'#get-in-touch'"
       :class="'Hero_button'"
       :size="'tall'"
       :color="'blue'"
       :form="'rounded'"
     >
       Schedule Demo
-    </Button> -->
+    </Button>
   </article>
 </template>
 

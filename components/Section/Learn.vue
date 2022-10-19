@@ -7,14 +7,15 @@
     <p class="Section_description -opposite Learn_description">
       Games have always been in the first flight of adoption to almost every significant computing technology shift — from early desktops to the internet and smartphones.
     </p>
-    <!-- <Button
+    <Button
+        v-scroll-to="'#get-in-touch'"
         class="Learn_button"
-      :size="'tall'"
-      :color="'blue'"
-      :form="'rounded'"
+        :size="'tall'"
+        :color="'blue'"
+        :form="'rounded'"
       >
       Schedule Demo
-    </Button> -->
+    </Button>
   </article>
 </template>
 

@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    scrollSpy: { type: Boolean, default: true },
+    scrollSpy: { type: Boolean, default: false },
     scrolled: { type: Boolean, default: false },
   },
   data() {
@@ -27,7 +27,8 @@ export default {
         { title: 'For Builders', target: '#builders' },
         { title: 'For Early Adopters', target: '#adopters' },
         { title: 'For App Developers', target: '#tech' },
-        // { title: 'Play to Earn', target: '#learn' },
+        { title: '', target: '#learh' },
+        { title: 'Play to Earn', target: '#missions' },
       ],
     }
   },

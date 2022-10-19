@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <SectionGetInTouch />
+      <SectionGetInTouch id="get-in-touch" />
       <div class="Page_layer -top">
         <div class="Page_header">
           <Header />

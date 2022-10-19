@@ -7,7 +7,7 @@
     </li>
   </ul>
   <ul v-else v-scroll-spy-link class="Nav">
-    <li v-for="item in list" :key="item.title" class="Nav_item">
+    <li v-for="item in list" v-show="item.title" :key="item.title" class="Nav_item">
       <a class="Nav_link" :href="item.target" @click="$emit('click', $event)">{{
         item.title
       }}</a>
