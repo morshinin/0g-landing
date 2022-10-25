@@ -49,7 +49,7 @@ export default {
   &::before,
   &::after {
     content: '';
-    background: url("/images/curly-brace.png") center / cover no-repeat;
+    background: url("/images/curly-brace.svg") center / cover no-repeat;
     position: absolute;
     top: 0;
     width: 26px;
@@ -89,7 +89,7 @@ export default {
 
     &::before,
     &::after {
-      background: url("/images/square-brace.png") center / cover no-repeat;
+      background: url("/images/square-brace.svg") center / cover no-repeat;
       width: 21px;
       height: 110px;
 

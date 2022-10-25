@@ -109,54 +109,5 @@ export default {
       transition: ease opacity 300ms, ease transform 300ms;
     }
   }
-
-  //@media (max-width: 780px) {
-  //  padding: 3px 16px !important;
-  //
-  //  &_item {
-  //    & + & {
-  //      margin-left: 10px;
-  //
-  //      &::before {
-  //        display: none;
-  //      }
-  //    }
-  //  }
-  //
-  //  &_link {
-  //    padding: 6px 7px;
-  //    font-size: 16px;
-  //
-  //    &::before {
-  //      width: calc(100% + 7px);
-  //      height: calc(100% + 5px);
-  //      left: -3px;
-  //      top: -3px;
-  //      border-radius: 8px;
-  //    }
-  //  }
-  //}
-  //
-  //@media (max-width: 480px) {
-  //  padding: 3px 14px !important;
-  //
-  //  &_item {
-  //    & + & {
-  //      margin-left: 6px;
-  //    }
-  //  }
-  //
-  //  &_link {
-  //    padding: 5px 6px;
-  //    font-size: 15px;
-  //
-  //    &::before {
-  //      width: calc(100% + 6px);
-  //      height: calc(100% + 5px);
-  //      left: -3px;
-  //      top: -3px;
-  //    }
-  //  }
-  //}
 }
 </style>

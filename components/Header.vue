@@ -1,10 +1,11 @@
 <template>
   <div
     class="Header"
+    :class="{'-scrolled': scrollPosition > 0}"
   >
     <div class="container">
       <div class="Header_inner">
-        <button v-scroll-to="'#home'" class="Header_action -home">
+        <button v-scroll-to="'#hero'" class="Header_action -home">
           <Logo />
         </button>
         <div class="Header_nav">
@@ -30,13 +31,20 @@ export default {
         { title: '', target: '#learh' },
         { title: 'Play to Earn', target: '#missions' },
       ],
+      scrollPosition: null,
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll);
   },
 
   methods: {
     handleClick(e) {
       e.preventDefault()
     },
+    updateScroll() {
+      this.scrollPosition = window.scrollY
+    }
   },
 }
 </script>
@@ -48,6 +56,7 @@ export default {
   $this: &;
 
   position: relative;
+
 
   &_inner {
     display: flex;
@@ -123,7 +132,9 @@ export default {
   }
 
   &.-scrolled {
-    background-color: var(--color-bluegrey);
+    @include for-tablet-up {
+      background: linear-gradient(to bottom, var(--color-bluegrey) 50%, transparent);
+    }
 
     #{$this}_inner {
       padding: 10px 0;
@@ -134,11 +145,9 @@ export default {
     }
 
     .Logo_img {
-      width: 30px;
-      height: 48px;
-
       @include for-tablet-up {
-        width: 54px;
+        width: 30px;
+        height: 48px;
       }
     }
   }

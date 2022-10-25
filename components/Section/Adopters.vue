@@ -1,7 +1,7 @@
 <template>
   <article ref="viewport" class="Section Adopters">
     <div class="container">
-      <div class="Section_body" ref="body">
+      <div ref="body" class="Section_body">
         <p class="Section_pretitle Adopters_pretitle">Early adopters</p>
         <h1 class="Section_title -opposite Adopters_title">
           Web3 at&nbsp;your fingertips
@@ -10,9 +10,9 @@
           Launch all your Web3 apps and manage all virtual items and game assets in&nbsp;one place
         </p>
         <div class="Adopters_scroll-wrap">
-          <div class="Adopters_scroll">
+          <div v-if="noHorizontalScroll" class="Adopters_scroll">
             <Scrollbar :style="{padding: `0 ${padding}`}">
-              <div class="Adopters_slider">
+              <div ref="cards" class="Adopters_slider">
                   <PromoSlide
                     v-for="(card, index) in cards"
                     :key="index"
@@ -21,6 +21,16 @@
                   />
               </div>
             </Scrollbar>
+          </div>
+          <div v-else class="Adopters_scroll">
+            <div ref="cards" class="Adopters_slider">
+              <PromoSlide
+                  v-for="(card, index) in cards"
+                  :key="index"
+                  :title="card.title"
+                  :img="card.img"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -34,8 +44,9 @@
 </template>
 
 <script>
+import { TimelineMax, Sine } from 'gsap'
 import Scrollbar from '../Scrollbar/Scrollbar.vue';
-// import { TimelineMax, Sine } from 'gsap'
+import { getDeviceType } from '@/utils/getDeviceType'
 
 export default {
   components: {
@@ -43,6 +54,7 @@ export default {
   },
   data() {
     return {
+      noHorizontalScroll: false,
       padding: 0,
       cards: [
         {
@@ -73,33 +85,43 @@ export default {
     }
   },
   mounted() {
-    // const viewport = this.$refs.viewport
-    // const cards = this.$refs.cards
-    // const shift = (cards.clientWidth - viewport.clientWidth) * -1
+    if (this.isMobile()) {
+      this.noHorizontalScroll = true;
+      this.padding = this.$refs.body.offsetLeft + 'px';
+    } else {
+      this.noHorizontalScroll = false;
+      const viewport = this.$refs.viewport
+      const cards = this.$refs.cards
+      const shift = (cards.clientWidth - viewport.clientWidth) * -1
 
-    // this.$scrollmagic.addScene(
-    //   this.$scrollmagic
-    //   .scene({
-    //     triggerElement: viewport,
-    //     triggerHook: 0,
-    //     duration: 4000,
-    //   })
-    //   .setPin(viewport, { pushFollowers: true })
-    //   .setTween(
-    //     new TimelineMax()
-    //     .fromTo(
-    //       cards,
-    //       0.5,
-    //       { x: 0 },
-    //       {
-    //         x: shift,
-    //         ease: Sine.easeInOut,
-    //       }
-    //     )
-    //   )
-    // )
-      console.log(this.$refs.body.offsetLeft);
-    this.padding = this.$refs.body.offsetLeft + 'px';
+      this.$scrollmagic.addScene(
+          this.$scrollmagic
+              .scene({
+                triggerElement: viewport,
+                triggerHook: 0,
+                duration: 4000,
+              })
+              .setPin(viewport, {pushFollowers: true})
+              .setTween(
+                  new TimelineMax()
+                      .fromTo(
+                          cards,
+                          0.5,
+                          {x: 50},
+                          {
+                            x: shift,
+                            ease: Sine.easeInOut,
+                          }
+                      )
+              )
+      )
+    }
+
+  },
+  methods: {
+    isMobile() {
+      return getDeviceType() === 'mobile' || window.innerWidth < 768;
+    }
   }
 };
 </script>

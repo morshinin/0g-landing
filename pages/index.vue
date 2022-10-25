@@ -32,7 +32,7 @@
       <SectionGetInTouch id="get-in-touch" />
       <div class="Page_layer -top">
         <div class="Page_header">
-          <Header />
+          <Header :scroll-spy="true" />
         </div>
       </div>
     </div>
@@ -117,6 +117,26 @@ export default {
   position: relative;
   z-index: var(--layer-0);
 
+  &_header {
+    z-index: 1;
+    pointer-events: all;
+
+    @include for-tablet-up {
+      position: sticky;
+      top: 0;
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 320px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+  }
+
   &_body {
     position: relative;
   }
@@ -132,24 +152,6 @@ export default {
       left: 0;
       top: 0;
       z-index: var(--layer-2);
-      pointer-events: none;
-    }
-  }
-
-  &_header {
-    // position: sticky;
-    top: 0;
-    z-index: 1;
-    pointer-events: all;
-    width: 100%;
-
-    &::before {
-      content: '';
-      width: 100%;
-      height: 320px;
-      position: absolute;
-      left: 0;
-      top: 0;
       pointer-events: none;
     }
   }
@@ -190,7 +192,7 @@ export default {
   #learn {
     border-radius: 2.4rem;
     margin-bottom: 164px;
- 
+
     @include for-desktop-up {
       border-radius: 80px;
     }
