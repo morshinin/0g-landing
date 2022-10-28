@@ -55,6 +55,11 @@ export default {
   data() {
     return {
       noHorizontalScroll: false,
+      sceneCheck: null,
+      scene: null,
+      tween: null,
+      controller: null,
+      viewport: null,
       padding: 0,
       cards: [
         {
@@ -85,42 +90,66 @@ export default {
     }
   },
   mounted() {
-    if (this.isMobile()) {
-      this.noHorizontalScroll = true;
-      this.padding = this.$refs.body.offsetLeft + 'px';
-    } else {
-      this.noHorizontalScroll = false;
-      const viewport = this.$refs.viewport
-      const cards = this.$refs.cards
-      const shift = (cards.clientWidth - viewport.clientWidth) * -1
+    this.viewport = this.$refs.viewport;
 
-      this.$scrollmagic.addScene(
-          this.$scrollmagic
-              .scene({
-                triggerElement: viewport,
-                triggerHook: 0,
-                duration: 4000,
-              })
-              .setPin(viewport, {pushFollowers: true})
-              .setTween(
-                  new TimelineMax()
-                      .fromTo(
-                          cards,
-                          0.5,
-                          {x: 50},
-                          {
-                            x: shift,
-                            ease: Sine.easeInOut,
-                          }
-                      )
-              )
-      )
+    if (window.innerWidth > 1120) {
+      this.setScene();
+      this.noHorizontalScroll = false;
+      this.$scrollmagic.addScene(this.scene);
+    } else {
+      this.deleteScene();
+      this.noHorizontalScroll = true;
     }
 
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1120) {
+        this.setScene();
+        this.$scrollmagic.addScene(this.scene);
+        // this.scene.refresh();
+        this.$scrollmagic.updateScene(this.scene);
+        // this.scene.setPin(this.viewport, {pushFollowers: true});
+        this.noHorizontalScroll = false;
+      } else {
+        this.deleteScene();
+        this.noHorizontalScroll = true;
+      }
+    })
+
+    // this.padding = this.$refs.body.offsetLeft + 'px';
   },
   methods: {
     isMobile() {
       return getDeviceType() === 'mobile' || window.innerWidth < 768;
+    },
+    setScene() {
+      // this.viewport = ;
+      const cards = this.$refs.cards;
+      const shift = (cards.clientWidth - this.viewport.clientWidth) * -1;
+      this.tween = new TimelineMax()
+      .fromTo(
+        cards,
+        0.5,
+        {x: 50},
+        {
+          x: shift,
+          ease: Sine.easeInOut,
+        }
+      )
+      this.scene = this.$scrollmagic.scene({
+        triggerElement: this.viewport,
+        triggerHook: 0,
+        duration: 4000,
+      })
+      .setPin(this.viewport, {pushFollowers: true})
+      .setTween(
+          this.tween
+      )
+    },
+    deleteScene() {
+      this.$scrollmagic.removeScene(this.scene);
+      this.$scrollmagic.destroy(true);
+      this.scene = null;
+      this.tween = null;
     }
   }
 };
@@ -137,6 +166,7 @@ export default {
   @include for-tablet-up {
     padding-top: 40px;
     padding-bottom: 40px;
+    height: 100vh;
   }
 
   @include for-desktop-up {
