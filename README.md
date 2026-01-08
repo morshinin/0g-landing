@@ -4,6 +4,12 @@ A promotional landing page for a Web 3.0 game, built with Nuxt.js.
 ## 📋 About The Project
 This project is a single-page promotional website (landing page) created for a game related to Web 3.0 technologies. The primary goal is user acquisition through project presentation and lead generation via a contact form.
 
+## 🖼️ Preview
+
+Here is a quick look at the main page of the landing:
+
+![Main page preview of the 0G Landing Page](./static/screenshots/main-preview.png)
+
 ## ✨ Tech Stack
 The project uses a modern stack for fast and performant development:
 
